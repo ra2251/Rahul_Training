@@ -1,0 +1,63 @@
+<div class="container second-group" (submit)="onFormSubmit($event)">
+    <dx-form id="form" [formData]="userData$ | async">
+        <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+       
+                <dxi-item dataField="firstname">
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                    <dxi-validation-rule type="pattern" [pattern]="nameFeildPattern"
+                        message="Your name feild contains only words and spaces."></dxi-validation-rule>
+                </dxi-item>
+        
+                <dxi-item dataField="lastname">
+                    <dxi-validation-rule type="required"></dxi-validation-rule>
+                    <dxi-validation-rule type="pattern" [pattern]="nameFeildPattern"
+                        message="Your last name feild contains only words and spaces.">
+                    </dxi-validation-rule>
+                </dxi-item>
+            
+        
+            <dxi-item dataField="dob"  editorType="dxDateBox" [editorOptions]="{ value: null, width: '100%' }">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+                <dxi-validation-rule type="range" [max]="maxDate"
+                    message="You can't select more than today"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="tno">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [max]="10" [min]="10"
+                    message="Mobile number must be 10 digit">
+                </dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="mobileNumberPattern"
+                    message="Your phone must have digits only format!"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="email">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+                <dxi-validation-rule type="email"></dxi-validation-rule>
+        
+            </dxi-item>
+        
+            <dxi-item dataField="sex"  editorType="dxSelectBox" [editorOptions]="{ items: Gender, searchEnabled: true, value:'' }">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="Language" editorType="dxSelectBox" [editorOptions]="{ items: Language, searchEnabled: true, value:'' }">
+                
+            </dxi-item>
+            <dxi-item dataField="Facebook"></dxi-item>
+            <dxi-item dataField="Twitter"></dxi-item>
+            <dxi-item dataField="LinkedIn"></dxi-item>
+            <dxi-item dataField="notes" editorType="dxTextArea" [colSpan]="2"
+                [editorOptions]="{ height: 100 }"></dxi-item>
+               
+                
+        </dxi-item>
+        <dxi-item 
+            itemType="button"
+            horizontalAlignment="left"
+            [buttonOptions]="buttonOptions">
+        </dxi-item>
+    </dx-form>
+</div>
+
+
+
+
+

@@ -1,0 +1,39 @@
+
+
+<div class="row" style="background-color: aqua;"> 
+    <div class="col" >
+        <a [routerLink]="['']" >
+           home  
+        </a>
+    </div>
+    <div class="col">
+        <a [routerLink]="['/home2']" >
+           home2
+        </a>
+    </div>
+    <div class="col">
+        <a [routerLink]="['reports']" *ngIf="role===1">
+            link to Reports component
+        </a>
+    </div>
+    <div class="col">
+        <a [routerLink]="['dashboard']" *ngIf="role===1">
+            link to user component
+        </a>
+    </div>
+    <div class="col">
+        <a [routerLink]="['page1']" *ngIf="role===2">
+            page1
+        </a>
+    </div>
+    <div class="col" *ngIf="role===0">
+        <a class="btn btn-primary" [routerLink]="['/login']" >
+            login
+        </a>
+    </div>
+    <div class="col" *ngIf="role!==0">
+        <a class="btn btn-danger" [routerLink]="['']" (click)="logout()">
+            logout
+        </a>
+    </div>
+</div>
